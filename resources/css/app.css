@@ -90,6 +90,10 @@
 }
 
 :root {
+    --bg:        #0B0F1A;
+    --bg2:       #111827;
+    --bg3:       #1A2233;
+    --accent1:    #F5C20E;
     --background: hsl(0 0% 100%);
     --foreground: hsl(0 0% 3.9%);
     --card: hsl(0 0% 100%);
@@ -169,4 +173,12 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+.circuit-bg{
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(rgba(245,194,14,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,194,14,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
