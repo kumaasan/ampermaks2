@@ -1,73 +1,132 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {
+    ArrowRight,
+    Gauge,
+    Hammer,
+    Home,
+    Plug,
+    Siren,
+    Zap,
+} from 'lucide-vue-next';
+
+// Usługi — dodanie kolejnej karty to jeden obiekt w tablicy, bez zmian w template.
+// Każdy tytuł to jednocześnie nagłówek H3 pod kątem SEO.
+const services = [
+    {
+        icon: Hammer,
+        title: 'Modernizacja instalacji elektrycznej',
+        description:
+            'Stara instalacja bez uziemienia, przestarzałe bezpieczniki topikowe, za mało gniazdek? Modernizujemy instalacje etapowo, tak żeby dało się w budynku normalnie funkcjonować w trakcie prac.',
+    },
+
+    {
+        icon: Plug,
+        title: 'Nowe instalacje elektryczne',
+        description:
+            'Kompleksowy montaż instalacji w nowym domu, mieszkaniu lub lokalu usługowym — od projektu rozdzielnicy po ostatni punkt świetlny. Zgodnie z normami i z myślą o latach użytkowania.',
+    },
+    {
+        icon: Siren,
+        title: 'Usuwanie awarii elektrycznych',
+        description:
+            'Zwarcie, brak prądu, iskrzenie w gniazdku? Lokalizujemy usterkę szybko i bez zbędnego rozkuwania ścian. Dostępni również po godzinach, gdy awaria nie może czekać do jutra.',
+    },
+
+    {
+        icon: Zap,
+        title: 'Wymiana rozdzielnic i zabezpieczeń',
+        description:
+            'Wymiana starej rozdzielnicy na nową, z odpowiednio dobranymi zabezpieczeniami różnicowoprądowymi i nadprądowymi. Realny wzrost bezpieczeństwa instalacji bez ingerencji w resztę domu.',
+    },
+    {
+        icon: Home,
+        title: 'Inteligentny dom i montaż urządzeń',
+        description:
+            'Podłączenie klimatyzacji, ładowarek do samochodów elektrycznych, oświetlenia sterowanego z telefonu i innych urządzeń smart home — zaplanowane tak, żeby instalacja nadążała za technologią.',
+    },
+    {
+        icon: Gauge,
+        title: 'Pomiary elektryczne z protokołem',
+        description:
+            'Pomiary skuteczności ochrony przeciwporażeniowej, rezystancji izolacji i stanu instalacji — z protokołem gotowym do przedłożenia u ubezpieczyciela, zarządcy budynku lub podczas odbioru.',
+    },
+];
+</script>
+
 <template>
-    <section class="bg-white px-5 py-20 md:px-10 lg:px-20">
-        <div class="mx-auto max-w-[1200px]">
-            <div class="mb-12">
-                <span
-                    class="mb-4 flex items-center gap-2.5 text-[12px] font-bold tracking-[0.14em] text-[#ffd63e] uppercase"
+    <section id="uslugi" class="bg-white">
+        <div
+            class="mx-auto w-full max-w-[1600px] px-6 py-16 sm:px-6 lg:px-8 lg:py-24"
+        >
+            <!-- Nagłówek sekcji -->
+            <div class="mx-auto max-w-2xl text-center">
+                <p
+                    class="inline-flex items-center gap-3 rounded-full bg-[#0B1F3A0D] px-6 py-3 mb-6 text-lg font-medium text-[#0B1F3A]"
                 >
-                    <span class="h-[2px] w-7 rounded-sm bg-[#ffd63e]"></span>
-                    Nasze Usługi
-                </span>
+                    <span
+                        class="h-1.5 w-1.5 rounded-full bg-[#F5A623]"
+                        aria-hidden="true"
+                    />
+                    Nasza oferta
+                </p>
                 <h2
-                    class="text-4xl font-black tracking-tighter text-slate-900 uppercase md:text-6xl"
+                    class="text-3xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-4xl"
                 >
-                    Profesjonalne<br /><span class="text-[#ffd63e]"
-                        >Rozwiązania</span
-                    >
+                    Usługi elektryczne dla domu i firmy w jednym miejscu
                 </h2>
+                <p class="mt-4 text-lg leading-relaxed text-slate-600">
+                    Zakres, z którym najczęściej się do nas zgłaszacie — od
+                    pojedynczej awarii po pełną instalację elektryczną od
+                    podstaw.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Example Card (Repeat for others) -->
+            <!-- Siatka usług -->
+            <div
+                class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+            >
                 <article
-                    class="rounded-xl border border-gray-100 bg-gray-50 p-8 transition-shadow hover:shadow-xl"
+                    v-for="service in services"
+                    :key="service.title"
+                    class="flex flex-col rounded-2xl bg-(--bg) p-6 transition-all duration-300 ease-out hover:ring-2 hover:ring-amber-400 sm:p-7"
                 >
-                    <div class="mb-6 text-[#ffd63e]">
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                        >
-                            <rect x="2" y="7" width="20" height="14" rx="2" />
-                            <path
-                                d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"
-                            />
-                        </svg>
-                    </div>
-                    <h3 class="mb-4 text-xl font-bold">Remonty instalacji</h3>
-                    <p class="mb-6 leading-relaxed text-gray-600">
-                        Wymiana starej instalacji aluminiowej lub miedzianej,
-                        modernizacja rozdzielnic, wymiana gniazdek i łączników.
-                    </p>
-                    <div class="mb-6 flex flex-wrap gap-2">
-                        <span
-                            class="rounded bg-gray-200 px-2 py-1 text-[10px] font-bold"
-                            >Stare budownictwo</span
-                        >
-                        <span
-                            class="rounded bg-gray-200 px-2 py-1 text-[10px] font-bold"
-                            >Bloki</span
-                        >
-                    </div>
-                    <div
-                        class="flex items-center justify-between border-t pt-4"
+                    <span
+                        class="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white"
                     >
-                        <span class="font-bold">Zapytaj o wycenę</span>
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            class="h-5 w-5"
-                        >
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </div>
+                        <component
+                            :is="service.icon"
+                            class="size-5 text-[#0B1F3A]"
+                            aria-hidden="true"
+                        />
+                    </span>
+                    <h3 class="mt-5 text-lg font-bold text-[#0B1F3A]">
+                        {{ service.title }}
+                    </h3>
+                    <p
+                        class="mt-2 flex-1 text-sm leading-relaxed text-slate-600"
+                    >
+                        {{ service.description }}
+                    </p>
+                    <a
+                        href="#kontakt"
+                        class="mt-5 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-[#0B1F3A] transition-colors hover:text-[#D88E12] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
+                    >
+                        Dowiedz się więcej
+                        <ArrowRight class="size-4" aria-hidden="true" />
+                    </a>
                 </article>
-                <!-- Repeat cards here -->
             </div>
+
+            <!-- Mikro-CTA zamykające sekcję -->
+            <p class="mt-12 text-center text-base text-slate-600">
+                Nie widzisz swojej usługi na liście?
+                <a
+                    href="#kontakt"
+                    class="pl-1 font-semibold text-[#0B1F3A] underline decoration-[#F5A623] decoration-2 underline-offset-4 hover:text-[#D88E12] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
+                >
+                    Zapytaj — na pewno pomożemy.
+                </a>
+            </p>
         </div>
     </section>
 </template>

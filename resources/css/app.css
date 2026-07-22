@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
 
 @import 'tw-animate-css';
 
@@ -90,7 +93,7 @@
 }
 
 :root {
-    --bg:        #0B0F1A;
+    --bg:        #F2F3F4;
     --bg2:       #111827;
     --bg3:       #1A2233;
     --accent1:    #F5C20E;
