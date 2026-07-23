@@ -24,9 +24,9 @@ const trustPoints = [
 </script>
 
 <template>
-    <section class="bg-(--bg)">
+    <section class="relative z-10 pb-5 bg-(--bg)">
         <div
-            class="mx-auto grid w-full max-w-[1600px] gap-10 px-6 py-8 lg:grid-cols-12 lg:gap-12 lg:py-24"
+            class="mx-auto grid w-full max-w-[1600px] gap-10 px-6 py-8 lg:grid-cols-12 lg:gap-12 lg:pt-24 lg:pb-32"
         >
             <!-- Kolumna tekstowa -->
             <div class="flex flex-col justify-center lg:col-span-7">
@@ -142,6 +142,18 @@ const trustPoints = [
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 lg:translate-y-2 z-30 ">
+            <svg
+                viewBox="0 0 1440 120"
+                class="block h-10 w-full lg:h-24"
+                preserveAspectRatio="none"
+            >
+                <path
+                    d="M0,0 C220,118 420,118 720,42 C940,2 1120,-20 1440,74 L1440,120 L0,120 Z"
+                    fill="#ffffff"
+                />
+            </svg>
         </div>
     </section>
 </template>

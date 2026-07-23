@@ -1,48 +1,109 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Image as ImageIcon } from 'lucide-vue-next';
+import { computed } from 'vue';
+
+interface Project {
+    title: string;
+    image: string;
+    category: string;
+}
+const props = defineProps<{
+    projects: Project[];
+}>();
+
+const hasProjects = computed(() => props.projects.length > 0);
+
+const skeletonCount = 7;
+</script>
 
 <template>
-    <section class="bg-white px-5 py-20 md:px-10 lg:px-20">
-        <div class="mx-auto max-w-[1200px]">
-            <span
-                class="mb-4 flex items-center gap-2.5 text-[12px] font-bold tracking-[0.14em] text-[#ffd63e] uppercase"
+    <section id="realizacje" class="relative bg-[#0B1F3A0D]">
+        <!-- Fala na górze sekcji — inna amplituda niż dolna, dla lekkiej asymetrii -->
+        <div class="absolute inset-x-0 top-0 z-30 lg:-translate-y-2">
+            <svg
+                viewBox="0 0 1440 120"
+                class="block h-10 w-full lg:h-24"
+                preserveAspectRatio="none"
             >
-                <span class="h-[2px] w-7 rounded-sm bg-[#ffd63e]"></span> Jak
-                pracujemy
-            </span>
-            <h2
-                class="mb-4 text-4xl font-black tracking-tighter text-slate-900 uppercase md:text-6xl"
-            >
-                Prosty<br /><span class="text-[#ffd63e]">Proces Zlecenia</span>
-            </h2>
-            <p class="mb-16 max-w-xl text-gray-500">
-                Od pierwszego kontaktu do odbioru gotowej instalacji – bez
-                komplikacji.
-            </p>
+                <path
+                    d="M0,120 C260,10 480,10 760,70 C980,116 1160,132 1440,52 L1440,0 L0,0 Z"
+                    fill="#ffffff"
+                />
+            </svg>
+        </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                <div class="space-y-4">
+        <div class="mx-auto w-full max-w-[1600px] px-6 py-20 lg:py-32">
+            <div class="mx-auto max-w-2xl text-center">
+                <p
+                    class="mb-6 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-lg font-medium text-[#0B1F3A]"
+                >
+                    <span
+                        class="h-1.5 w-1.5 rounded-full bg-[#F5A623]"
+                        aria-hidden="true"
+                    />
+                    Realizacje
+                </p>
+                <h2
+                    class="text-3xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-4xl"
+                >
+                    Zobacz, jak wyglądają nasze realizacje
+                </h2>
+                <p class="mt-4 text-lg leading-relaxed text-slate-600">
+                    Zdjęcia z ostatnich realizacji pojawią się tutaj wkrótce —
+                    bezpośrednio z placu budowy, bez podkolorowanych zdjęć
+                    stockowych.
+                </p>
+            </div>
+
+            <!-- Realna galeria, gdy przekazano projects -->
+            <div
+                v-if="hasProjects"
+                class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+            >
+                <figure
+                    v-for="project in projects"
+                    :key="project.title"
+                    class="overflow-hidden rounded-2xl bg-white"
+                >
+                    <img
+                        :src="project.image"
+                        :alt="project.title"
+                        class="h-56 w-full object-cover"
+                    />
+                    <figcaption class="p-5">
+                        <p class="text-sm font-semibold text-[#0B1F3A]">
+                            {{ project.title }}
+                        </p>
+                        <p class="mt-1 text-sm text-slate-600">
+                            {{ project.category }}
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- Skeleton dopóki brak realnych zdjęć -->
+            <div
+                v-else
+                class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+                role="status"
+            >
+                <div
+                    v-for="n in skeletonCount"
+                    :key="n"
+                    class="animate-pulse overflow-hidden rounded-2xl bg-white p-4"
+                >
                     <div
-                        class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-[#ffd63e]"
+                        class="flex h-48 w-full items-center justify-center rounded-xl bg-slate-200"
                     >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            class="h-6 w-6"
-                        >
-                            <path
-                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"
-                            />
-                        </svg>
+                        <ImageIcon
+                            class="size-8 text-slate-400"
+                            aria-hidden="true"
+                        />
                     </div>
-                    <h3 class="text-lg font-bold">Kontakt i opis</h3>
-                    <p class="text-sm text-gray-600">
-                        Zadzwoń lub napisz – opisz problem lub zakres pracy.
-                        Odpiszemy w ciągu godziny.
-                    </p>
+                    <div class="mt-4 h-3 w-3/5 rounded-full bg-slate-200" />
+                    <div class="mt-2.5 h-2.5 w-2/5 rounded-full bg-slate-200" />
                 </div>
-                <!-- Repeat for 3 more steps -->
+                <span class="sr-only">Ładowanie zdjęć realizacji...</span>
             </div>
         </div>
     </section>

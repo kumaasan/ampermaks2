@@ -21,10 +21,10 @@ defineProps({
 // Linki nawigacji — dodanie nowej sekcji = dodanie jednego wpisu tutaj
 const navLinks = [
     { label: 'Usługi', href: '#uslugi' },
-    { label: 'Dla firm', href: '#dla-firm' },
     { label: 'Realizacje', href: '#realizacje' },
-    { label: 'Opinie', href: '#opinie' },
+    { label: 'Kontakt', href: '#kontakt' },
     { label: 'FAQ', href: '#faq' },
+    { label: 'O nas', href: '#o-nas' },
     { label: 'Blog', href: '#blog' },
 ];
 

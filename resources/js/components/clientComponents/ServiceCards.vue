@@ -56,7 +56,7 @@ const services = [
 <template>
     <section id="uslugi" class="bg-white">
         <div
-            class="mx-auto w-full max-w-[1600px] px-6 py-16 sm:px-6 lg:px-8 lg:py-24"
+            class="mx-auto w-full max-w-[1600px] px-6 py-16 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16"
         >
             <!-- Nagłówek sekcji -->
             <div class="mx-auto max-w-2xl text-center">
@@ -70,8 +70,7 @@ const services = [
                     Nasza oferta
                 </p>
                 <h2
-                    class="text-3xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-4xl"
-                >
+                    class="text-3xl lg:pb-2 font-extrabold tracking-tight text-[#0B1F3A] sm:text-4xl">
                     Usługi elektryczne dla domu i firmy w jednym miejscu
                 </h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
