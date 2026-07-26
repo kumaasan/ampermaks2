@@ -1,14 +1,15 @@
+<script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
+</script>
+
 <template>
     <div>
-        <!-- Twoja własna nawigacja -->
         <header>
             <nav>
                 <Link href="/">Strona główna</Link>
                 <Link href="/blog">Blog</Link>
             </nav>
         </header>
-
-        <!-- Tu renderują się podstrony -->
         <main>
             <slot />
         </main>
@@ -19,6 +20,3 @@
     </div>
 </template>
 
-<script setup>
-import { Link } from '@inertiajs/vue3';
-</script>

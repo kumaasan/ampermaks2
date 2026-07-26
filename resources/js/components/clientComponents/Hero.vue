@@ -16,7 +16,7 @@ defineProps({
 const trustPoints = [
     'Uprawnienia SEP E i D',
     'Wieloletnie doświadczenia',
-    '500+ zrealizowanych zleceń',
+    'W gronie Złotych Orłów Elektryki 2026',
 ];
 
 // Paleta AmperMaks (literalne HEX, niezależne od globalnego motywu projektu):
@@ -44,7 +44,7 @@ const trustPoints = [
                     class="text-4xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-5xl lg:text-6xl"
                 >
                     Elektryk, na którego
-                    <span class="text-[#F5A623]">możesz liczyć</span> — dziś i
+                    <span class="text-[#F5A623]">możesz liczyć</span> - dziś i
                     za 10 lat
                 </h1>
 

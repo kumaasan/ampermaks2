@@ -1,129 +1,160 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
+</script>
 
 <template>
-    <footer class="border-t border-white/5 bg-[#070A12] pt-20 pb-10 text-white">
-        <div class="mx-auto max-w-[1200px] px-5">
-            <div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-4">
-                <div class="md:col-span-1">
-                    <a href="/" class="mb-6 flex items-center gap-2">
-                        <div class="h-8 w-8">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#0B0F1A"
-                                stroke-width="2.5"
-                                stroke-linecap="round"
-                            >
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                            </svg>
-                        </div>
-                        <span
-                            class="text-xl font-bold tracking-tight text-white"
-                            >AMPER<span class="text-[#ffd63e]">MAKS</span></span
-                        >
-                    </a>
-                    <p class="mb-6 text-sm leading-relaxed text-gray-400">
-                        Profesjonalne usługi elektryczne na Śląsku. Uprawnienia
-                        SEP E i D, ponad 10 lat doświadczenia.
-                    </p>
-                    <div class="flex flex-col gap-2 text-sm text-gray-400">
-                        <div class="flex items-center gap-2">
-                            <svg
-                                class="h-4 w-4 stroke-current"
-                                fill="none"
-                                stroke-width="2"
-                            >
-                                <path
-                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"
-                                />
-                            </svg>
-                            <a href="tel:+48XXXXXXXXX">+48 XXX XXX XXX</a>
-                        </div>
-                    </div>
+    <footer class="border-white/5 bg-[#070A12]">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <Link href="/" class="flex items-center">
+                        <img
+                            src="/logo.svg"
+                            class="me-3 h-7 bg-white"
+                            alt="AmperMaks Logo"
+                        />
+                    </Link>
                 </div>
-
-                <div class="grid grid-cols-3 gap-8 md:col-span-3">
+                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
                     <div>
-                        <h4
-                            class="mb-6 text-sm font-bold tracking-widest text-white uppercase"
-                        >
-                            Usługi
-                        </h4>
-                        <ul class="space-y-3 text-sm text-gray-400">
-                            <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Nowe instalacje</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Remonty instalacji</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Usuwanie awarii</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4
-                            class="mb-6 text-sm font-bold tracking-widest text-white uppercase"
-                        >
-                            Firma
-                        </h4>
-                        <ul class="space-y-3 text-sm text-gray-400">
-                            <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >O nas</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Realizacje</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Kontakt</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4
-                            class="mb-6 text-sm font-bold tracking-widest text-white uppercase"
+                        <h2
+                            class="mb-6 text-sm font-semibold text-heading uppercase"
                         >
                             Obszar
-                        </h4>
-                        <ul class="space-y-3 text-sm text-gray-400">
+                        </h2>
+                        <ul class="font-medium text-body">
+                            <li class="mb-4">
+                                <p>Świętochłowice</p>
+                            </li>
                             <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Świętochłowice</a
+                                <p>Śląskie</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2
+                            class="mb-6 text-sm font-semibold text-heading uppercase"
+                        >
+                            Follow us
+                        </h2>
+                        <ul class="font-medium text-body">
+                            <li class="mb-4">
+                                <a
+                                    href="https://www.facebook.com/ampermaks/"
+                                    target="_blank"
+                                    class="hover:underline"
+                                    >Facebook</a
+                                >
+                            </li>
+                            <li class="mb-4">
+                                <a
+                                    href="https://www.instagram.com/ampermaks9"
+                                    target="_blank"
+                                    class="hover:underline"
+                                    >Instagram</a
                                 >
                             </li>
                             <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Chorzów</a
+                                <a
+                                    href="https://youtube.com/#"
+                                    target="_blank"
+                                    class="hover:underline"
+                                    >YouTube</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2
+                            class="mb-6 text-sm font-semibold text-heading uppercase"
+                        >
+                            Prawne
+                        </h2>
+                        <ul class="font-medium text-body">
+                            <li class="mb-4">
+                                <a href="#" class="hover:underline"
+                                    >Polityka prywatności</a
                                 >
                             </li>
                             <li>
-                                <a href="#" class="transition hover:text-white"
-                                    >Katowice</a
+                                <a href="#" class="hover:underline"
+                                    >Terms &amp; Conditions</a
                                 >
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div
-                class="flex items-center justify-between border-t border-white/5 pt-8 text-xs text-gray-500"
-            >
-                <p>© 2025 Ampermaks. Wszelkie prawa zastrzeżone.</p>
-                <div class="flex gap-4">
-                    <a href="#">Polityka prywatności</a>
-                    <a href="#">Regulamin</a>
+            <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-body sm:text-center"
+                    >© 2023
+                    <a href="https://flowbite.com/" class="hover:underline"
+                        >Flowbite™</a
+                    >. All Rights Reserved.
+                </span>
+                <div class="mt-4 flex sm:mt-0 sm:justify-center">
+                    <a
+                        href="https://www.facebook.com/ampermaks/"
+                        target="_blank"
+                        class="text-body hover:text-heading"
+                    >
+                        <svg
+                            class="h-6 w-6 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a href="#" class="ms-5 text-body hover:text-heading">
+                        <svg
+                            class="h-6 w-6 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="#" class="ms-5 text-body hover:text-heading">
+                        <svg
+                            class="h-6 w-6 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span class="sr-only">YouTube</span>
+                    </a>
                 </div>
             </div>
         </div>

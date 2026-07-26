@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
 import { Menu, X, Phone } from 'lucide-vue-next';
 import { ref, onMounted, onUnmounted } from 'vue';
 
@@ -20,12 +21,12 @@ defineProps({
 
 // Linki nawigacji — dodanie nowej sekcji = dodanie jednego wpisu tutaj
 const navLinks = [
-    { label: 'Usługi', href: '#uslugi' },
-    { label: 'Realizacje', href: '#realizacje' },
-    { label: 'Kontakt', href: '#kontakt' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'O nas', href: '#o-nas' },
-    { label: 'Blog', href: '#blog' },
+    { label: 'Usługi', href: '/#uslugi' },
+    { label: 'Realizacje', href: '/#realizacje' },
+    { label: 'Nagrody', href: '/#nagrody' },
+    { label: 'Kontakt', href: '/kontakt' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Blog', href: '/blog' },
 ];
 
 const isScrolled = ref(false);
@@ -63,42 +64,30 @@ onUnmounted(() => {
         <div class="mx-auto grid w-full max-w-[1600px] gap-10 px-6">
             <div class="flex h-16 items-center justify-between lg:h-20">
                 <!-- Logo -->
-                <a
-                    href="#"
+                <Link
+                    href="/"
                     class="flex shrink-0 items-center gap-2"
-                    aria-label="AmperMaks - strona główna"
-                >
+                    aria-label="AmperMaks - strona główna">
                     <span
-                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0B1F3A]"
-                    >
-                        <svg
-                            class="h-5 w-5 text-[#F5A623]"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path d="M13 2 3 14h7l-1 8 11-14h-7z" />
-                        </svg>
+                        class="flex h-9 w-9 items-center justify-center rounded-lg">
+                        <img alt="AmperMaks logo" src="/logo.svg"/>
                     </span>
-                    <span
-                        class="text-lg font-bold tracking-tight text-[#0B1F3A]"
-                        >AmperMaks</span
-                    >
-                </a>
+                    <span class="text-lg font-bold tracking-tight text-[#0B1F3A]">AmperMaks</span>
+                </Link>
 
                 <!-- Nawigacja desktop -->
                 <nav
                     class="hidden items-center gap-8 lg:flex"
                     aria-label="Nawigacja główna"
                 >
-                    <a
+                    <Link
                         v-for="link in navLinks"
                         :key="link.href"
                         :href="link.href"
                         class="rounded-sm text-sm font-medium text-slate-600 transition-colors hover:text-[#0B1F3A] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
                     >
                         {{ link.label }}
-                    </a>
+                    </Link>
                 </nav>
 
                 <!-- Telefon + CTA (desktop) -->
@@ -110,12 +99,12 @@ onUnmounted(() => {
                         <Phone class="h-4 w-4" aria-hidden="true" />
                         {{ phone }}
                     </a>
-                    <a
-                        href="#kontakt"
+                    <Link
+                        href="/kontakt"
                         class="inline-flex items-center justify-center rounded-lg bg-[#F5A623] px-5 py-2.5 text-sm font-semibold text-[#0B1F3A] shadow-sm transition-colors hover:bg-[#D88E12] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-2 focus-visible:outline-none"
                     >
                         {{ ctaLabel }}
-                    </a>
+                    </Link>
                 </div>
 
                 <!-- Przycisk menu mobilnego -->
