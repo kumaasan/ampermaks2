@@ -4,16 +4,22 @@ import { computed } from 'vue';
 
 interface Project {
     title: string;
+    description: string;
     image: string;
-    category: string;
 }
-const props = defineProps<{
-    projects: Project[];
-}>();
+
+// Bez wartości domyślnej defineProps<T>() dałoby props.projects === undefined,
+// gdyby ktoś zapomniał je przekazać w Home.vue — computed niżej by wtedy wyleciał.
+// withDefaults zabezpiecza to i utrzymuje działający fallback na skeleton.
+const props = withDefaults(defineProps<{ projects: Project[] }>(), {
+    projects: () => [],
+});
 
 const hasProjects = computed(() => props.projects.length > 0);
 
-const skeletonCount = 7;
+// 6, nie 7 — żeby siatka 3-kolumnowa (i 2-kolumnowa na tablecie) zawsze
+// zamykała się pełnymi rzędami, zarówno w skeletonie, jak i z realnymi zdjęciami.
+const skeletonCount = 6;
 </script>
 
 <template>
@@ -49,13 +55,15 @@ const skeletonCount = 7;
                     Zobacz, jak wyglądają nasze realizacje
                 </h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
-                    Zdjęcia z ostatnich realizacji pojawią się tutaj wkrótce —
-                    bezpośrednio z placu budowy, bez podkolorowanych zdjęć
-                    stockowych.
+                    {{
+                        hasProjects
+                            ? 'Kilka przykładów prac, które zrealizowaliśmy ostatnio — zobacz efekt.'
+                            : 'Zdjęcia z ostatnich realizacji pojawią się tutaj wkrótce — bezpośrednio z placu budowy, bez podkolorowanych zdjęć stockowych.'
+                    }}
                 </p>
             </div>
 
-            <!-- Realna galeria, gdy przekazano projects -->
+            <!-- Realna galeria — karta 1:1 jak w skeletonie poniżej (ten sam p-4, h-48, odstępy) -->
             <div
                 v-if="hasProjects"
                 class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
@@ -63,19 +71,24 @@ const skeletonCount = 7;
                 <figure
                     v-for="project in projects"
                     :key="project.title"
-                    class="overflow-hidden rounded-2xl bg-white"
+                    class="overflow-hidden rounded-2xl bg-white p-4"
                 >
-                    <img
-                        :src="project.image"
-                        :alt="project.title"
-                        class="h-56 w-full object-cover"
-                    />
-                    <figcaption class="p-5">
-                        <p class="text-sm font-semibold text-[#0B1F3A]">
+                    <div
+                        class="h-64 w-full overflow-hidden rounded-xl bg-slate-100"
+                    >
+                        <img
+                            :src="project.image"
+                            :alt="project.title"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                    <figcaption>
+                        <p class="mt-4 text-md font-bold text-[#0B1F3A]">
                             {{ project.title }}
                         </p>
-                        <p class="mt-1 text-sm text-slate-600">
-                            {{ project.category }}
+                        <p class="mt-2.5 text-sm text-slate-600">
+                            {{ project.description }}
                         </p>
                     </figcaption>
                 </figure>

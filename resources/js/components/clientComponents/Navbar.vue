@@ -70,7 +70,7 @@ onUnmounted(() => {
                     aria-label="AmperMaks - strona główna">
                     <span
                         class="flex h-9 w-9 items-center justify-center rounded-lg">
-                        <img alt="AmperMaks logo" src="/logo.svg"/>
+                        <img alt="AmperMaks logo" src="/logo2.png"/>
                     </span>
                     <span class="text-lg font-bold tracking-tight text-[#0B1F3A]">AmperMaks</span>
                 </Link>

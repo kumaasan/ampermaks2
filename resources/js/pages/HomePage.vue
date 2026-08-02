@@ -21,13 +21,21 @@ const awards = [
             'Jesteśmy laureatami lokalnego konkursu Orły Elektryki - Świętochłowice w roku 2026',
     },
 ];
+
+const projects = [
+    {
+        title: "Instalacje elektryczne",
+        description: "nie wiem jakis sobie opis jest",
+        image: "realizacje/rozdzielnia.png"
+    }
+]
 </script>
 
 <template>
     <div>
         <Hero />
         <ServiceCard />
-        <ProcessSteps :projects="[]" />
+        <ProcessSteps :projects="projects" />
         <AwardsSection :awards="awards" />
     </div>
 </template>

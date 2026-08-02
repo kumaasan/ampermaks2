@@ -3,13 +3,13 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <footer class="border-white/5 bg-[#070A12]">
+    <footer class="">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <Link href="/" class="flex items-center">
                         <img
-                            src="/logo.svg"
+                            src="/logo2.png"
                             class="me-3 h-7 bg-white"
                             alt="AmperMaks Logo"
                         />

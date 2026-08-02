@@ -24,7 +24,7 @@ const trustPoints = [
 </script>
 
 <template>
-    <section class="relative z-10 pb-5 bg-(--bg)">
+    <section class="relative z-10 bg-(--bg) pb-5">
         <div
             class="mx-auto grid w-full max-w-[1600px] gap-10 px-6 py-8 lg:grid-cols-12 lg:gap-12 lg:pt-24 lg:pb-32"
         >
@@ -91,33 +91,24 @@ const trustPoints = [
             <!-- Kolumna wizualna -->
             <div class="relative lg:col-span-5">
                 <div
-                    class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#0B1F3A] lg:aspect-auto lg:h-full"
+                    class="relative aspect-4/5 overflow-hidden rounded-xl lg:aspect-auto lg:h-full"
                 >
-                    <!-- Abstrakcyjna grafika obwodu elektrycznego - do podmiany na realne zdjęcie realizacji -->
-                    <svg
-                        class="absolute inset-0 h-full w-full opacity-40"
-                        viewBox="0 0 400 500"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M40 60 H180 V140 H320 V220"
-                            stroke="#F5A623"
-                            stroke-width="2"
-                        />
-                        <path
-                            d="M40 220 H140 V320 H280 V420"
-                            stroke="#12345D"
-                            stroke-width="2"
-                        />
-                        <circle cx="180" cy="140" r="5" fill="#F5A623" />
-                        <circle cx="320" cy="220" r="5" fill="#F5A623" />
-                        <circle cx="140" cy="320" r="5" fill="#12345D" />
-                    </svg>
+                    <!-- Mapa dojazdu. absolute + h-full/w-full zamiast sztywnych width/height
+                         z Google - inaczej iframe wymusza min. 620px szerokości i rozwala layout na mobile -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1298.8600123160954!2d18.91648637142907!3d50.29804279210744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69196ec4f68eda0f%3A0xc66439357798ad74!2sMTK%20Krzysztof%20G%C5%82ombik%20-%20AmperMaks!5e0!3m2!1sen!2spl!4v1785688387653!5m2!1sen!2spl"
+                        title="Mapa dojazdu do AmperMaks w Świętochłowicach"
+                        class="absolute inset-0 h-full w-full border-0"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                    ></iframe>
 
-                    <div class="absolute inset-0 flex items-end p-6">
-                        <div class="w-full rounded-xl bg-white p-5 shadow-lg">
+                    <div
+                        class="pointer-events-none absolute inset-0 flex items-end justify-center p-6"
+                    >
+                        <div
+                            class="pointer-events-auto w-fit rounded-xl bg-white/10 px-5 py-4 shadow-lg backdrop-blur-2xl"
+                        >
                             <div class="flex items-center gap-3">
                                 <span
                                     class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#16A34A1A]"
@@ -143,7 +134,7 @@ const trustPoints = [
                 </div>
             </div>
         </div>
-        <div class="absolute inset-x-0 bottom-0 lg:translate-y-2 z-30 ">
+        <div class="absolute inset-x-0 bottom-0 z-30 lg:translate-y-2">
             <svg
                 viewBox="0 0 1440 120"
                 class="block h-10 w-full lg:h-24"

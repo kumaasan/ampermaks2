@@ -78,6 +78,7 @@ const hasAwards = computed(() => props.awards.length > 0);
                             :src="award.image"
                             :alt="award.title"
                             class="max-h-full max-w-full object-contain"
+                            loading="lazy"
                         />
                     </div>
 
