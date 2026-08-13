@@ -3,14 +3,14 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <footer class="">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer class="bg-[#070A12]">
+        <div class="mx-auto w-full max-w-[1600px] px-6 py-12 lg:py-16">
             <div class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
+                <div class="mb-8 md:mb-0">
                     <Link href="/" class="flex items-center">
                         <img
                             src="/logo2.png"
-                            class="me-3 h-7 bg-white"
+                            class="me-3 h-7 rounded bg-white"
                             alt="AmperMaks Logo"
                         />
                     </Link>
@@ -18,11 +18,11 @@ import { Link } from '@inertiajs/vue3';
                 <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
                     <div>
                         <h2
-                            class="mb-6 text-sm font-semibold text-heading uppercase"
+                            class="mb-6 text-sm font-semibold text-white uppercase"
                         >
                             Obszar
                         </h2>
-                        <ul class="font-medium text-body">
+                        <ul class="font-medium text-slate-400">
                             <li class="mb-4">
                                 <p>Świętochłowice</p>
                             </li>
@@ -33,16 +33,16 @@ import { Link } from '@inertiajs/vue3';
                     </div>
                     <div>
                         <h2
-                            class="mb-6 text-sm font-semibold text-heading uppercase"
+                            class="mb-6 text-sm font-semibold text-white uppercase"
                         >
-                            Follow us
+                            Obserwuj nas
                         </h2>
-                        <ul class="font-medium text-body">
+                        <ul class="font-medium text-slate-400">
                             <li class="mb-4">
                                 <a
                                     href="https://www.facebook.com/ampermaks/"
                                     target="_blank"
-                                    class="hover:underline"
+                                    class="transition-colors hover:text-[#F5A623]"
                                     >Facebook</a
                                 >
                             </li>
@@ -50,7 +50,7 @@ import { Link } from '@inertiajs/vue3';
                                 <a
                                     href="https://www.instagram.com/ampermaks9"
                                     target="_blank"
-                                    class="hover:underline"
+                                    class="transition-colors hover:text-[#F5A623]"
                                     >Instagram</a
                                 >
                             </li>
@@ -58,7 +58,7 @@ import { Link } from '@inertiajs/vue3';
                                 <a
                                     href="https://youtube.com/#"
                                     target="_blank"
-                                    class="hover:underline"
+                                    class="transition-colors hover:text-[#F5A623]"
                                     >YouTube</a
                                 >
                             </li>
@@ -66,41 +66,42 @@ import { Link } from '@inertiajs/vue3';
                     </div>
                     <div>
                         <h2
-                            class="mb-6 text-sm font-semibold text-heading uppercase"
+                            class="mb-6 text-sm font-semibold text-white uppercase"
                         >
                             Prawne
                         </h2>
-                        <ul class="font-medium text-body">
+                        <ul class="font-medium text-slate-400">
                             <li class="mb-4">
-                                <a href="#" class="hover:underline"
+                                <a
+                                    href="#"
+                                    class="transition-colors hover:text-[#F5A623]"
                                     >Polityka prywatności</a
                                 >
                             </li>
                             <li>
-                                <a href="#" class="hover:underline"
-                                    >Terms &amp; Conditions</a
+                                <a
+                                    href="#"
+                                    class="transition-colors hover:text-[#F5A623]"
+                                    >Regulamin</a
                                 >
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+            <hr class="my-8 border-white/10 sm:mx-auto lg:my-10" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-body sm:text-center"
-                    >© 2023
-                    <a href="https://flowbite.com/" class="hover:underline"
-                        >Flowbite™</a
-                    >. All Rights Reserved.
+                <span class="text-sm text-slate-400 sm:text-center">
+                    © 2026 AmperMaks. Wszelkie prawa zastrzeżone.
                 </span>
                 <div class="mt-4 flex sm:mt-0 sm:justify-center">
                     <a
                         href="https://www.facebook.com/ampermaks/"
                         target="_blank"
-                        class="text-body hover:text-heading"
+                        class="ms-5 rounded-xl p-2 text-slate-400 transition-all duration-300 hover:text-[#F5A623] hover:ring-2"
                     >
                         <svg
-                            class="h-6 w-6 text-gray-800 dark:text-white"
+                            class="size-6"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -114,12 +115,15 @@ import { Link } from '@inertiajs/vue3';
                                 clip-rule="evenodd"
                             />
                         </svg>
-
                         <span class="sr-only">Facebook</span>
                     </a>
-                    <a href="#" class="ms-5 text-body hover:text-heading">
+                    <a
+                        href="https://www.instagram.com/ampermaks9"
+                        target="_blank"
+                        class="ms-5 rounded-xl p-2 text-slate-400 transition-all duration-300 hover:text-[#F5A623] hover:ring-2"
+                    >
                         <svg
-                            class="h-6 w-6 text-gray-800 dark:text-white"
+                            class="size-6"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -134,12 +138,15 @@ import { Link } from '@inertiajs/vue3';
                                 clip-rule="evenodd"
                             />
                         </svg>
-
                         <span class="sr-only">Instagram</span>
                     </a>
-                    <a href="#" class="ms-5 text-body hover:text-heading">
+                    <a
+                        href="https://youtube.com/#"
+                        target="_blank"
+                        class="ms-5 rounded-xl p-2 text-slate-400 transition-all duration-300 hover:text-[#F5A623] hover:ring-2"
+                    >
                         <svg
-                            class="h-6 w-6 text-gray-800 dark:text-white"
+                            class="size-6"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"

@@ -4,11 +4,19 @@ import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
+import vueDevTools from 'vite-plugin-vue-devtools';
 import path from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
+        // 1. Vue DevTools musi być przed laravel()
+        vueDevTools({
+            // w Laravel + Inertia często trzeba wskazać plik wejściowy
+            appendTo: 'resources/js/app.ts',
+        }),
+
+        // 2. Reszta pluginów Laravela/Vue
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.ts'],
             refresh: true,

@@ -21,6 +21,7 @@ defineProps({
 
 // Linki nawigacji — dodanie nowej sekcji = dodanie jednego wpisu tutaj
 const navLinks = [
+    { label: 'Home', href: '/', mobileOnly: true },
     { label: 'Usługi', href: '/#uslugi' },
     { label: 'Realizacje', href: '/#realizacje' },
     { label: 'Nagrody', href: '/#nagrody' },
@@ -67,12 +68,17 @@ onUnmounted(() => {
                 <Link
                     href="/"
                     class="flex shrink-0 items-center gap-2"
-                    aria-label="AmperMaks - strona główna">
+                    aria-label="AmperMaks - strona główna"
+                >
                     <span
-                        class="flex h-9 w-9 items-center justify-center rounded-lg">
-                        <img alt="AmperMaks logo" src="/logo2.png"/>
+                        class="flex h-9 w-9 items-center justify-center rounded-lg"
+                    >
+                        <img alt="AmperMaks logo" src="/logo2.png" />
                     </span>
-                    <span class="text-lg font-bold tracking-tight text-[#0B1F3A]">AmperMaks</span>
+                    <span
+                        class="text-lg font-bold tracking-tight text-[#0B1F3A]"
+                        >AmperMaks</span
+                    >
                 </Link>
 
                 <!-- Nawigacja desktop -->
@@ -84,7 +90,10 @@ onUnmounted(() => {
                         v-for="link in navLinks"
                         :key="link.href"
                         :href="link.href"
-                        class="rounded-sm text-sm font-medium text-slate-600 transition-colors hover:text-[#0B1F3A] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
+                        :class="[
+                            'rounded-sm text-sm font-medium text-slate-600 transition-colors hover:text-[#0B1F3A] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none',
+                            link.mobileOnly ? 'lg:hidden' : '',
+                        ]"
                     >
                         {{ link.label }}
                     </Link>

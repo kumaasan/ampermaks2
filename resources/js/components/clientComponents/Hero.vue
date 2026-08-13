@@ -15,7 +15,7 @@ defineProps({
 
 const trustPoints = [
     'Uprawnienia SEP E i D',
-    'Wieloletnie doświadczenia',
+    'Wieloletnie doświadczenie',
     'W gronie Złotych Orłów Elektryki 2026',
 ];
 

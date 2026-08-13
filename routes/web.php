@@ -8,6 +8,8 @@ Route::inertia('/kontakt', 'ContactPage')->name('contact-page');
 
 Route::inertia('/faq', 'Faq')->name('faq');
 
+Route::inertia('/blog', 'Blog')->name('blog');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
 });
