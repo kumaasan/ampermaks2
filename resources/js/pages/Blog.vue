@@ -115,7 +115,7 @@ defineOptions({ layout: ClientAppLayout });
                 <h2
                     class="text-3xl font-extrabold tracking-tight text-[#0B1F3A]"
                 >
-                    Najnowsze artykuły
+                    Wszystkie artykuły
                 </h2>
 
                 <p class="mt-3 text-slate-600">

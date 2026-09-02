@@ -29,12 +29,9 @@
                 background-color: oklch(0.145 0 0);
             }
         </style>
-{{--        <link rel="icon" href="https://ampermaks.pl/favicon.ico" type="image/x-icon">--}}
-{{--        <link rel="icon" href="/favicon.ico" type="image/x-icon">--}}
-{{--        <link rel="icon" href="/favicon.svg" type="image/svg+xml">--}}
-{{--        <link rel="apple-touch-icon" href="/apple-touch-icon.png">--}}
+        <link rel="icon" href="/faviconAmperMaks.ico" type="image/x-icon">
 
-        @fonts
+
 
         @vite(['resources/css/app.css', 'resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
         <x-inertia::head>

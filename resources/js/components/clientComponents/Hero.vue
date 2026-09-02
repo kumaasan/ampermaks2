@@ -31,7 +31,7 @@ const trustPoints = [
             <!-- Kolumna tekstowa -->
             <div class="flex flex-col justify-center lg:col-span-7">
                 <p
-                    class="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-[#0B1F3A0D] px-3 py-1 text-sm font-medium text-[#0B1F3A]"
+                    class="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-medium text-[#0B1F3A]"
                 >
                     <span
                         class="h-1.5 w-1.5 rounded-full bg-[#F5A623] font-extrabold"
@@ -99,7 +99,7 @@ const trustPoints = [
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1298.8600123160954!2d18.91648637142907!3d50.29804279210744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69196ec4f68eda0f%3A0xc66439357798ad74!2sMTK%20Krzysztof%20G%C5%82ombik%20-%20AmperMaks!5e0!3m2!1sen!2spl!4v1785688387653!5m2!1sen!2spl"
                         title="Mapa dojazdu do AmperMaks w Świętochłowicach"
                         class="absolute inset-0 h-full w-full border-0"
-                        loading="lazy"
+                        loading="eager"
                         referrerpolicy="strict-origin-when-cross-origin"
                     ></iframe>
 

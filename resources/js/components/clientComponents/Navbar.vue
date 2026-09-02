@@ -11,11 +11,11 @@ defineProps({
     },
     phoneHref: {
         type: String,
-        default: 'tel:510186483',
+        default: 'tel: 510186483',
     },
     ctaLabel: {
         type: String,
-        default: 'Bezpłatna wycena',
+        default: 'Zamów wycene',
     },
 });
 
@@ -91,7 +91,7 @@ onUnmounted(() => {
                         :key="link.href"
                         :href="link.href"
                         :class="[
-                            'rounded-sm text-sm font-medium text-slate-600 transition-colors hover:text-[#0B1F3A] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none',
+                            'rounded-sm text-sm font-medium text-slate-600 transition-colors hover:text-[#0B1F3A] hover:underline focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none',
                             link.mobileOnly ? 'lg:hidden' : '',
                         ]"
                     >

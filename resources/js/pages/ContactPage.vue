@@ -17,7 +17,7 @@ defineProps({
 
 const company = {
     name: 'AmperMaks',
-    taxId: 'NIP: XXX-XXX-XX-XX',
+    taxId: 'NIP: 628 103 54 27',
     street: 'ul. Przykładowa 1',
     city: '41-600 Świętochłowice',
 };
