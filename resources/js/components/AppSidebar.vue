@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { LayoutGrid, SquarePen } from '@lucide/vue';
+import { computed } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
@@ -13,22 +14,27 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import type { NavItem } from '@/types';
 import { dashboard } from '@/routes';
 import { create } from '@/routes/dashboard/posts';
-import type { NavItem } from '@/types';
 
-const mainNavItems: NavItem[] = [
+const page = usePage();
+const mainNavItems = computed<NavItem[]>(() => [
     {
         title: 'Strona główna',
         href: dashboard(),
         icon: LayoutGrid,
     },
-    {
-        title: 'Tworzenie postu',
-        href: create(),
-        icon: SquarePen,
-    },
-];
+    ...(page.props.auth.user.is_admin
+        ? [
+              {
+                  title: 'Tworzenie postu',
+                  href: create(),
+                  icon: SquarePen,
+              },
+          ]
+        : []),
+]);
 </script>
 
 <template>
