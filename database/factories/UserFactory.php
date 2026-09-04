@@ -43,4 +43,14 @@ class UserFactory extends Factory
         ]);
     }
 
+    /**
+     * Indicate that the user can manage blog posts.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_admin' => true,
+        ]);
+    }
+
 }
