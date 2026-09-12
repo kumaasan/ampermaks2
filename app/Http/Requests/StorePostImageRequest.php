@@ -8,7 +8,7 @@ class StorePostImageRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return $this->user() !== null;
+        return $this->user()?->can('manage-posts') === true;
     }
 
     /** @return array<string, mixed> */

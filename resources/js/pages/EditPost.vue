@@ -1,9 +1,19 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import type { JSONContent } from '@tiptap/core';
 import PostForm from '@/components/admin/PostForm.vue';
 
+interface EditablePost {
+    title: string;
+    slug: string;
+    excerpt: string;
+    content: JSONContent;
+    status: 'draft' | 'published';
+}
+
 defineProps<{
-    storeUrl: string;
+    post: EditablePost;
+    updateUrl: string;
     indexUrl: string;
     uploadUrl: string;
     maxUploadSizeMb: number;
@@ -14,8 +24,12 @@ defineOptions({
     layout: {
         breadcrumbs: [
             {
-                title: 'Nowy artykuł',
-                href: '/dashboard/posts/create',
+                title: 'Posty',
+                href: '/dashboard/posts',
+            },
+            {
+                title: 'Edycja',
+                href: '/dashboard/posts',
             },
         ],
     },
@@ -23,24 +37,27 @@ defineOptions({
 </script>
 
 <template>
-    <Head title="Nowy artykuł" />
+    <Head :title="`Edycja: ${post.title}`" />
 
     <div class="mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 md:p-8">
         <div>
             <p class="text-sm font-medium text-muted-foreground">Blog</p>
-            <h1 class="mt-1 text-3xl font-bold tracking-tight">Nowy artykuł</h1>
+            <h1 class="mt-1 text-3xl font-bold tracking-tight">
+                Edytuj artykuł
+            </h1>
             <p class="mt-2 text-muted-foreground">
-                Zapisz szkic albo opublikuj gotowy wpis na stronie bloga.
+                Zmień treść, adres lub status istniejącego wpisu.
             </p>
         </div>
 
         <PostForm
-            mode="create"
-            :submit-url="storeUrl"
+            mode="edit"
+            :submit-url="updateUrl"
             :cancel-url="indexUrl"
             :upload-url="uploadUrl"
             :allowed-image-types="allowedImageTypes"
             :max-upload-size-mb="maxUploadSizeMb"
+            :initial-post="post"
         />
     </div>
 </template>

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Post;
 use App\Models\PostImage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -30,7 +31,7 @@ final class PostContentRenderer
      * @param  array<string, mixed>  $document
      * @return array{json: array<string, mixed>, html: string, media_ids: list<string>}
      */
-    public function render(array $document, int $userId): array
+    public function render(array $document, int $userId, ?Post $post = null): array
     {
         $this->reset();
 
@@ -52,12 +53,17 @@ final class PostContentRenderer
 
         if ($mediaIds !== []) {
             $images = PostImage::query()
-                ->where('user_id', $userId)
-                ->whereNull('post_id')
                 ->whereIn('id', $mediaIds)
                 ->get();
 
             foreach ($images as $image) {
+                $isNewUpload = $image->post_id === null && $image->user_id === $userId;
+                $belongsToEditedPost = $post !== null && $image->post_id === $post->getKey();
+
+                if (! $isNewUpload && ! $belongsToEditedPost) {
+                    continue;
+                }
+
                 $this->images[$image->id] = $image;
             }
 

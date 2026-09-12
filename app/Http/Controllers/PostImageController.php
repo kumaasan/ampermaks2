@@ -10,7 +10,6 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use RuntimeException;
 use Throwable;
 
 class PostImageController extends Controller
@@ -51,7 +50,9 @@ class PostImageController extends Controller
         $path = Storage::disk('public')->putFileAs($directory, $file, "{$id}.{$extension}");
 
         if ($path === false) {
-            throw new RuntimeException('Nie udało się zapisać obrazu.');
+            throw ValidationException::withMessages([
+                'image' => 'Nie udało się zapisać obrazu. Spróbuj ponownie.',
+            ]);
         }
 
         try {

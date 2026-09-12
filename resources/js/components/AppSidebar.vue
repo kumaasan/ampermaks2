@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
-import { LayoutGrid, SquarePen } from '@lucide/vue';
+import { Files, LayoutGrid, SquarePen } from '@lucide/vue';
 import { computed } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavMain from '@/components/NavMain.vue';
@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/sidebar';
 import type { NavItem } from '@/types';
 import { dashboard } from '@/routes';
-import { create } from '@/routes/dashboard/posts';
+import { create, index } from '@/routes/dashboard/posts';
 
 const page = usePage();
 const mainNavItems = computed<NavItem[]>(() => [
@@ -28,7 +28,12 @@ const mainNavItems = computed<NavItem[]>(() => [
     ...(page.props.auth.user.is_admin
         ? [
               {
-                  title: 'Tworzenie postu',
+                  title: 'Posty',
+                  href: index(),
+                  icon: Files,
+              },
+              {
+                  title: 'Nowy artykuł',
                   href: create(),
                   icon: SquarePen,
               },
