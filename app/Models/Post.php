@@ -56,7 +56,10 @@ class Post extends Model
         return $this->hasMany(PostImage::class);
     }
 
-    /** @param Builder<Post> $query */
+    /**
+     * @param  Builder<Post>  $query
+     * @return Builder<Post>
+     */
     public function scopePublished(Builder $query): Builder
     {
         return $query
