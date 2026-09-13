@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
-import { Files, LayoutGrid, SquarePen } from '@lucide/vue';
+import {
+    Files,
+    ImageIcon,
+    ImagePlus,
+    LayoutGrid,
+    SquarePen,
+} from '@lucide/vue';
 import { computed } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavMain from '@/components/NavMain.vue';
@@ -17,6 +23,10 @@ import {
 import type { NavItem } from '@/types';
 import { dashboard } from '@/routes';
 import { create, index } from '@/routes/dashboard/posts';
+import {
+    create as createRealization,
+    index as indexRealizations,
+} from '@/routes/dashboard/realizations';
 
 const page = usePage();
 const mainNavItems = computed<NavItem[]>(() => [
@@ -36,6 +46,16 @@ const mainNavItems = computed<NavItem[]>(() => [
                   title: 'Nowy artykuł',
                   href: create(),
                   icon: SquarePen,
+              },
+              {
+                  title: 'Realizacje',
+                  href: indexRealizations(),
+                  icon: ImageIcon,
+              },
+              {
+                  title: 'Nowa realizacja',
+                  href: createRealization(),
+                  icon: ImagePlus,
               },
           ]
         : []),

@@ -3,6 +3,7 @@ import { Image as ImageIcon } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 interface Project {
+    id: number;
     title: string;
     description: string;
     image: string;
@@ -70,11 +71,11 @@ const skeletonCount = 6;
             >
                 <figure
                     v-for="project in projects"
-                    :key="project.title"
+                    :key="project.id"
                     class="overflow-hidden rounded-2xl bg-white p-4"
                 >
                     <div
-                        class="h-64 w-full overflow-hidden rounded-xl bg-slate-100"
+                        class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100"
                     >
                         <img
                             :src="project.image"
@@ -84,7 +85,7 @@ const skeletonCount = 6;
                         />
                     </div>
                     <figcaption>
-                        <p class="mt-4 text-md font-bold text-[#0B1F3A]">
+                        <p class="text-md mt-4 font-bold text-[#0B1F3A]">
                             {{ project.title }}
                         </p>
                         <p class="mt-2.5 text-sm text-slate-600">
@@ -106,7 +107,7 @@ const skeletonCount = 6;
                     class="animate-pulse overflow-hidden rounded-2xl bg-white p-4"
                 >
                     <div
-                        class="flex h-48 w-full items-center justify-center rounded-xl bg-slate-200"
+                        class="flex aspect-[4/3] w-full items-center justify-center rounded-xl bg-slate-200"
                     >
                         <ImageIcon
                             class="size-8 text-slate-400"
