@@ -274,15 +274,7 @@ class RealizationController extends Controller
         }
 
         if (is_array($files)) {
-            $uploadedImages = [];
-
-            foreach ($files as $file) {
-                if ($file instanceof UploadedFile) {
-                    $uploadedImages[] = $file;
-                }
-            }
-
-            return $uploadedImages;
+            return array_values($files);
         }
 
         $legacyImage = $request->file('image');
