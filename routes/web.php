@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicPostController;
 use Illuminate\Support\Facades\Route;
 
-Route::inertia('/', 'HomePage')->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 Route::inertia('/kontakt', 'ContactPage')->name('contact-page');
 

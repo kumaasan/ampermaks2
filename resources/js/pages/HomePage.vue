@@ -7,6 +7,17 @@ import ClientAppLayout from '@/layouts/ClientAppLayout.vue';
 
 defineOptions({ layout: ClientAppLayout });
 
+interface Realization {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+}
+
+defineProps<{
+    realizations: Realization[];
+}>();
+
 const awards = [
     {
         image: '/awards/logo_gold_pl_400.png',
@@ -21,21 +32,13 @@ const awards = [
             'Jesteśmy laureatami lokalnego konkursu Orły Elektryki - Świętochłowice w roku 2026',
     },
 ];
-
-const projects = [
-    {
-        title: "Instalacje elektryczne",
-        description: "nie wiem jakis sobie opis jest",
-        image: "realizacje/rozdzielnia.png"
-    }
-]
 </script>
 
 <template>
     <div>
         <Hero />
         <ServiceCard />
-        <ProcessSteps :projects="projects" />
+        <ProcessSteps :projects="realizations" />
         <AwardsSection :awards="awards" />
     </div>
 </template>

@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostImageController;
+use App\Http\Controllers\RealizationController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::inertia('/dashboard', 'Dashboard')
+    Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
     Route::prefix('dashboard')
@@ -35,5 +37,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/post-images', [PostImageController::class, 'store'])
                 ->middleware('throttle:20,1')
                 ->name('post-images.store');
+
+            Route::get('/realizations', [RealizationController::class, 'index'])
+                ->name('realizations.index');
+
+            Route::get('/realizations/create', [RealizationController::class, 'create'])
+                ->name('realizations.create');
+
+            Route::post('/realizations', [RealizationController::class, 'store'])
+                ->middleware('throttle:10,1')
+                ->name('realizations.store');
+
+            Route::delete('/realizations/{realization}', [RealizationController::class, 'destroy'])
+                ->name('realizations.destroy');
         });
 });
