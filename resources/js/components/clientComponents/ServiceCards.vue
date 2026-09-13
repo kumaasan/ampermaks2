@@ -107,7 +107,7 @@ const services = [
                         {{ service.description }}
                     </p>
                     <a
-                        href="#kontakt"
+                        href="/kontakt"
                         class="mt-5 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-[#0B1F3A] transition-colors hover:text-[#D88E12] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
                     >
                         Dowiedz się więcej
@@ -120,7 +120,7 @@ const services = [
             <p class="mt-12 text-center text-base text-slate-600">
                 Nie widzisz swojej usługi na liście?
                 <a
-                    href="#kontakt"
+                    href="/kontakt"
                     class="pl-1 font-semibold text-[#0B1F3A] underline decoration-[#F5A623] decoration-2 underline-offset-4 hover:text-[#D88E12] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
                 >
                     Zapytaj — na pewno pomożemy.

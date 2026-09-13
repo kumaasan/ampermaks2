@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Building2, MapPin, Phone } from 'lucide-vue-next';
 import { useForm } from '@inertiajs/vue3';
+import { Building2, MapPin, Phone } from 'lucide-vue-next';
 import ClientAppLayout from '@/layouts/ClientAppLayout.vue';
 
 defineOptions({ layout: ClientAppLayout });
@@ -18,8 +18,8 @@ defineProps({
 
 const company = {
     name: 'AmperMaks',
-    taxId: 'NIP: 628 103 54 27',
-    street: 'ul. Przykładowa 1',
+    taxId: 'NIP: 627 103 54 27',
+    street: 'ul. Ignacego Krasickiego 1',
     city: '41-600 Świętochłowice',
 };
 
@@ -70,7 +70,7 @@ function handleSubmit() {
                 <!-- dodac do formularza CSRF token! -->
                 <div
                     class="p-6 sm:p-8 lg:col-span-7 lg:p-10">
-                    <form class="space-y-6" @submit.prevent="handleSubmit">
+                    <form class="space-y-6" novalidate @submit.prevent="handleSubmit">
                         <div class="grid gap-6 sm:grid-cols-2">
                             <div>
                                 <label
@@ -87,8 +87,15 @@ function handleSubmit() {
                                     autocomplete="given-name"
                                     required
                                     placeholder="Jan"
+                                    :class="{ 'border-red-500': form.errors.firstName }"
                                     class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                                 />
+                                <p
+                                    v-if="form.errors.firstName"
+                                    class="mt-1 text-sm text-red-600"
+                                >
+                                    {{ form.errors.firstName }}
+                                </p>
                             </div>
                             <div>
                                 <label
@@ -105,8 +112,15 @@ function handleSubmit() {
                                     autocomplete="family-name"
                                     required
                                     placeholder="Kowalski"
+                                    :class="{ 'border-red-500': form.errors.lastName }"
                                     class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                                 />
+                                <p
+                                    v-if="form.errors.lastName"
+                                    class="mt-1 text-sm text-red-600"
+                                >
+                                    {{ form.errors.lastName }}
+                                </p>
                             </div>
                         </div>
 
@@ -126,6 +140,7 @@ function handleSubmit() {
                                     autocomplete="email"
                                     required
                                     placeholder="jan@email.pl"
+                                    :class="{ 'border-red-500': form.errors.email }"
                                     class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                                 />
                                 <p
@@ -150,8 +165,15 @@ function handleSubmit() {
                                     autocomplete="tel"
                                     required
                                     placeholder="+48 500 100 200"
+                                    :class="{ 'border-red-500': form.errors.phoneNumber }"
                                     class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                                 />
+                                <p
+                                    v-if="form.errors.phoneNumber"
+                                    class="mt-1 text-sm text-red-600"
+                                >
+                                    {{ form.errors.phoneNumber }}
+                                </p>
                             </div>
                         </div>
 
@@ -169,6 +191,7 @@ function handleSubmit() {
                                 rows="6"
                                 required
                                 placeholder="Opisz, czego potrzebujesz…"
+                                :class="{ 'border-red-500': form.errors.message }"
                                 class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                             ></textarea>
                             <p

@@ -66,7 +66,7 @@ const trustPoints = [
                         Zadzwoń teraz: {{ phone }}
                     </a>
                     <a
-                        href="#kontakt"
+                        href="/kontakt"
                         class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-6 py-3.5 text-base font-semibold text-[#0B1F3A] transition-colors hover:border-[#0B1F3A] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:outline-none"
                     >
                         Wyceń zlecenie
