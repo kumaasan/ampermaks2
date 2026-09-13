@@ -48,6 +48,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->middleware('throttle:10,1')
                 ->name('realizations.store');
 
+            Route::get('/realizations/{realization}/edit', [RealizationController::class, 'edit'])
+                ->name('realizations.edit');
+
+            Route::post('/realizations/{realization}/images', [RealizationController::class, 'storeImages'])
+                ->middleware('throttle:10,1')
+                ->name('realizations.images.store');
+
+            Route::delete('/realizations/{realization}/images/{image}', [RealizationController::class, 'destroyImage'])
+                ->scopeBindings()
+                ->name('realizations.images.destroy');
+
+            Route::delete('/realizations/{realization}/cover', [RealizationController::class, 'destroyCover'])
+                ->name('realizations.cover.destroy');
+
             Route::delete('/realizations/{realization}', [RealizationController::class, 'destroy'])
                 ->name('realizations.destroy');
         });

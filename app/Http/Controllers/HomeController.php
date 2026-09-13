@@ -20,6 +20,7 @@ class HomeController extends Controller
                 'title' => $realization->title,
                 'description' => $realization->description,
                 'image' => $realization->imageUrl(),
+                'show_url' => route('realizations.show', $realization),
             ]);
 
         return Inertia::render('HomePage', [
