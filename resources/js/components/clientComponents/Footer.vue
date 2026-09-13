@@ -99,7 +99,7 @@ const currentYear = new Date().getFullYear();
                             class="size-5 shrink-0 text-[#F5A623]"
                             aria-hidden="true"
                         />
-                        Świętochłowice i okolice
+                        Świętochłowice i województwo Śląskie
                     </p>
 
                     <h2

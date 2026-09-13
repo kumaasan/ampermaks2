@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicPostController;
 use App\Http\Controllers\PublicRealizationController;
@@ -15,6 +16,8 @@ Route::get('/blog', [PublicPostController::class, 'index'])->name('blog');
 Route::get('/blog/{post:slug}', [PublicPostController::class, 'show'])->name('blog.show');
 Route::get('/realizacje/{realization}', [PublicRealizationController::class, 'show'])
     ->name('realizations.show');
+Route::post('/kontakt', [ContactController::class, 'store'])->name('contact.store')
+  ->middleware('throttle:5,1');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/Admin.php';

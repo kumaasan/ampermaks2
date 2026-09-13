@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Building2, MapPin, Phone } from 'lucide-vue-next';
+import { useForm } from '@inertiajs/vue3';
 import ClientAppLayout from '@/layouts/ClientAppLayout.vue';
 
 defineOptions({ layout: ClientAppLayout });
@@ -22,8 +23,22 @@ const company = {
     city: '41-600 Świętochłowice',
 };
 
+const form = useForm({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    message: '',
+});
+
 function handleSubmit() {
-    // placeholder na logikę wysyłki formularza
+    form.post('/kontakt', {
+        preserveScroll: true,
+
+        onSuccess: () => {
+            form.reset();
+        },
+    });
 }
 </script>
 
@@ -66,6 +81,7 @@ function handleSubmit() {
                                 </label>
                                 <input
                                     id="firstName"
+                                    v-model="form.firstName"
                                     type="text"
                                     name="firstName"
                                     autocomplete="given-name"
@@ -83,6 +99,7 @@ function handleSubmit() {
                                 </label>
                                 <input
                                     id="lastName"
+                                    v-model="form.lastName"
                                     type="text"
                                     name="lastName"
                                     autocomplete="family-name"
@@ -103,6 +120,7 @@ function handleSubmit() {
                                 </label>
                                 <input
                                     id="email"
+                                    v-model="form.email"
                                     type="email"
                                     name="email"
                                     autocomplete="email"
@@ -110,6 +128,12 @@ function handleSubmit() {
                                     placeholder="jan@email.pl"
                                     class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                                 />
+                                <p
+                                    v-if="form.errors.email"
+                                    class="mt-1 text-sm text-red-600"
+                                >
+                                    {{ form.errors.email }}
+                                </p>
                             </div>
                             <div>
                                 <label
@@ -120,6 +144,7 @@ function handleSubmit() {
                                 </label>
                                 <input
                                     id="phoneNumber"
+                                    v-model="form.phoneNumber"
                                     type="tel"
                                     name="phoneNumber"
                                     autocomplete="tel"
@@ -139,12 +164,19 @@ function handleSubmit() {
                             </label>
                             <textarea
                                 id="message"
+                                v-model="form.message"
                                 name="message"
                                 rows="6"
                                 required
                                 placeholder="Opisz, czego potrzebujesz..."
                                 class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                             ></textarea>
+                            <p
+                                v-if="form.errors.message"
+                                class="mt-1 text-sm text-red-600"
+                            >
+                                {{ form.errors.message }}
+                            </p>
                         </div>
 
                         <p class="text-sm text-slate-500">
@@ -161,9 +193,10 @@ function handleSubmit() {
 
                         <button
                             type="submit"
-                            class="inline-flex items-center justify-center rounded-lg bg-[#F5A623] px-6 py-3.5 text-sm font-semibold text-[#0B1F3A] shadow-sm transition-colors hover:bg-[#D88E12] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-2 focus-visible:outline-none sm:w-fit"
+                            :disabled="form.processing"
+                            class="inline-flex items-center justify-center rounded-lg bg-[#F5A623] px-6 py-3.5 text-sm font-semibold text-[#0B1F3A] shadow-sm transition-colors hover:bg-[#D88E12] disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                            Wyślij wiadomość
+                            {{ form.processing ? 'Wysyłanie...' : 'Wyślij wiadomość' }}
                         </button>
                     </form>
                 </div>
