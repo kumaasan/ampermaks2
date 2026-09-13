@@ -1,168 +1,134 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
+import { MapPin, Phone } from 'lucide-vue-next';
+
+const navigationLinks = [
+    { label: 'Strona główna', href: '/' },
+    { label: 'Usługi', href: '/#uslugi' },
+    { label: 'Realizacje', href: '/#realizacje' },
+    { label: 'Nagrody', href: '/#nagrody' },
+    { label: 'Kontakt', href: '/kontakt' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Blog', href: '/blog' },
+];
+
+const socialLinks = [
+    {
+        label: 'Facebook',
+        href: 'https://www.facebook.com/ampermaks/',
+    },
+    {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/ampermaks9',
+    },
+];
+
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-    <footer class="bg-[#070A12]">
-        <div class="mx-auto w-full max-w-[1600px] px-6 py-12 lg:py-16">
-            <div class="md:flex md:justify-between">
-                <div class="mb-8 md:mb-0">
-                    <Link href="/" class="flex items-center">
-                        <img
-                            src="/logo2.png"
-                            class="me-3 h-7 rounded bg-white"
-                            alt="AmperMaks Logo"
-                        />
+    <footer class="bg-[#0B1F3A] text-white">
+        <div class="mx-auto w-full max-w-[1600px] px-6 py-10 sm:py-12 lg:py-14">
+            <div
+                class="grid gap-10 border-b border-white/15 pb-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-12 lg:gap-x-10 lg:pb-12"
+            >
+                <div class="md:col-span-2 lg:col-span-5">
+                    <Link
+                        href="/"
+                        class="inline-flex min-h-11 items-center rounded-sm text-2xl font-bold tracking-tight text-white transition-colors hover:text-[#F5A623] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0B1F3A] focus-visible:outline-none"
+                        aria-label="AmperMaks — strona główna"
+                    >
+                        AmperMaks
                     </Link>
+                    <span
+                        class="mt-2 block h-0.5 w-10 bg-[#F5A623]"
+                        aria-hidden="true"
+                    />
+
+                    <p
+                        class="mt-5 max-w-xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7"
+                    >
+                        Kompleksowe usługi elektryczne dla domów i firm:
+                        instalacje, modernizacje, awarie oraz pomiary.
+                    </p>
+
+                    <a
+                        href="tel:510186483"
+                        class="mt-5 inline-flex min-h-11 items-center gap-3 rounded-sm text-base font-semibold text-white transition-colors hover:text-[#F5A623] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0B1F3A] focus-visible:outline-none"
+                    >
+                        <Phone
+                            class="size-5 shrink-0 text-[#F5A623]"
+                            aria-hidden="true"
+                        />
+                        510 186 483
+                    </a>
                 </div>
-                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-                    <div>
-                        <h2
-                            class="mb-6 text-sm font-semibold text-white uppercase"
+
+                <nav class="lg:col-span-3" aria-label="Nawigacja w stopce">
+                    <h2
+                        class="text-xs font-bold tracking-[0.16em] text-slate-400 uppercase"
+                    >
+                        Na skróty
+                    </h2>
+                    <ul class="mt-4 grid grid-cols-2 gap-x-5">
+                        <li
+                            v-for="link in navigationLinks"
+                            :key="link.href"
+                            class="min-w-0"
                         >
-                            Obszar
-                        </h2>
-                        <ul class="font-medium text-slate-400">
-                            <li class="mb-4">
-                                <p>Świętochłowice</p>
-                            </li>
-                            <li>
-                                <p>Śląskie</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2
-                            class="mb-6 text-sm font-semibold text-white uppercase"
-                        >
-                            Obserwuj nas
-                        </h2>
-                        <ul class="font-medium text-slate-400">
-                            <li class="mb-4">
-                                <a
-                                    href="https://www.facebook.com/ampermaks/"
-                                    target="_blank"
-                                    class="transition-colors hover:text-[#F5A623]"
-                                    >Facebook</a
-                                >
-                            </li>
-                            <li class="mb-4">
-                                <a
-                                    href="https://www.instagram.com/ampermaks9"
-                                    target="_blank"
-                                    class="transition-colors hover:text-[#F5A623]"
-                                    >Instagram</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="https://youtube.com/#"
-                                    target="_blank"
-                                    class="transition-colors hover:text-[#F5A623]"
-                                    >YouTube</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2
-                            class="mb-6 text-sm font-semibold text-white uppercase"
-                        >
-                            Prawne
-                        </h2>
-                        <ul class="font-medium text-slate-400">
-                            <li class="mb-4">
-                                <a
-                                    href="#"
-                                    class="transition-colors hover:text-[#F5A623]"
-                                    >Polityka prywatności</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    class="transition-colors hover:text-[#F5A623]"
-                                    >Regulamin</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
+                            <Link
+                                :href="link.href"
+                                class="inline-flex min-h-11 items-center rounded-sm text-sm font-medium text-slate-200 transition-colors hover:text-[#F5A623] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1F3A] focus-visible:outline-none"
+                            >
+                                {{ link.label }}
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="lg:col-span-4">
+                    <h2
+                        class="text-xs font-bold tracking-[0.16em] text-slate-400 uppercase"
+                    >
+                        Obszar działania
+                    </h2>
+                    <p
+                        class="mt-4 flex min-h-11 items-center gap-3 text-sm leading-6 text-slate-200"
+                    >
+                        <MapPin
+                            class="size-5 shrink-0 text-[#F5A623]"
+                            aria-hidden="true"
+                        />
+                        Świętochłowice i okolice
+                    </p>
+
+                    <h2
+                        class="mt-7 text-xs font-bold tracking-[0.16em] text-slate-400 uppercase"
+                    >
+                        Obserwuj nas
+                    </h2>
+                    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-1">
+                        <li v-for="social in socialLinks" :key="social.href">
+                            <a
+                                :href="social.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex min-h-11 items-center border-b border-white/20 text-sm font-semibold text-slate-200 transition-colors hover:border-[#F5A623] hover:text-[#F5A623] focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1F3A] focus-visible:outline-none"
+                            >
+                                {{ social.label }}
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <hr class="my-8 border-white/10 sm:mx-auto lg:my-10" />
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-slate-400 sm:text-center">
-                    © 2026 AmperMaks. Wszelkie prawa zastrzeżone.
-                </span>
-                <div class="mt-4 flex sm:mt-0 sm:justify-center">
-                    <a
-                        href="https://www.facebook.com/ampermaks/"
-                        target="_blank"
-                        class="ms-5 rounded-xl p-2 text-slate-400 transition-all duration-300 hover:text-[#F5A623] hover:ring-2"
-                    >
-                        <svg
-                            class="size-6"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <span class="sr-only">Facebook</span>
-                    </a>
-                    <a
-                        href="https://www.instagram.com/ampermaks9"
-                        target="_blank"
-                        class="ms-5 rounded-xl p-2 text-slate-400 transition-all duration-300 hover:text-[#F5A623] hover:ring-2"
-                    >
-                        <svg
-                            class="size-6"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <span class="sr-only">Instagram</span>
-                    </a>
-                    <a
-                        href="https://youtube.com/#"
-                        target="_blank"
-                        class="ms-5 rounded-xl p-2 text-slate-400 transition-all duration-300 hover:text-[#F5A623] hover:ring-2"
-                    >
-                        <svg
-                            class="size-6"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <span class="sr-only">YouTube</span>
-                    </a>
-                </div>
+
+            <div
+                class="flex flex-col gap-2 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+            >
+                <p>
+                    © {{ currentYear }} AmperMaks. Wszelkie prawa zastrzeżone.
+                </p>
+                <p>Usługi elektryczne dla domów i firm.</p>
             </div>
         </div>
     </footer>
