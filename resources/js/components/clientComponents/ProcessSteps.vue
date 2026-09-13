@@ -60,7 +60,7 @@ const skeletonCount = 6;
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
                     {{
                         hasProjects
-                            ? 'Kilka przykładów prac, które zrealizowaliśmy ostatnio — zobacz efekt.'
+                            ? 'Kilka przykładów prac, które zrealizowaliśmy ostatnio — zobacz efekty.'
                             : 'Zdjęcia z ostatnich realizacji pojawią się tutaj wkrótce — bezpośrednio z placu budowy, bez podkolorowanych zdjęć stockowych.'
                     }}
                 </p>
@@ -123,7 +123,7 @@ const skeletonCount = 6;
                     <div class="mt-4 h-3 w-3/5 rounded-full bg-slate-200" />
                     <div class="mt-2.5 h-2.5 w-2/5 rounded-full bg-slate-200" />
                 </div>
-                <span class="sr-only">Ładowanie zdjęć realizacji...</span>
+                <span class="sr-only">Ładowanie zdjęć realizacji…</span>
             </div>
         </div>
     </section>

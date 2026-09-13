@@ -53,7 +53,11 @@ function formatDate(value: string): string {
 }
 
 function paginationLabel(label: string): string {
-    return label.replaceAll('&laquo;', '‹').replaceAll('&raquo;', '›');
+    return label
+        .replaceAll('&laquo;', '‹')
+        .replaceAll('&raquo;', '›')
+        .replace('Previous', 'Poprzednia')
+        .replace('Next', 'Następna');
 }
 </script>
 
@@ -74,7 +78,7 @@ function paginationLabel(label: string): string {
                 <h1
                     class="text-4xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-5xl lg:text-6xl"
                 >
-                    Wiedza od praktyków,
+                    Wiedza od praktyków —
                     <span class="text-[#F5A623]">bez lania wody.</span>
                 </h1>
                 <p
@@ -93,7 +97,7 @@ function paginationLabel(label: string): string {
                         <input
                             v-model="search"
                             type="search"
-                            placeholder="Szukaj artykułów..."
+                            placeholder="Szukaj artykułów…"
                             aria-label="Szukaj artykułów na blogu"
                             class="h-14 w-full border-none bg-transparent px-0 text-base text-slate-900 placeholder:text-slate-400 focus:outline-none"
                         />
@@ -145,7 +149,7 @@ function paginationLabel(label: string): string {
                     Wszystkie artykuły
                 </h2>
                 <p class="mt-3 text-slate-600">
-                    {{ posts.total }} opublikowanych wpisów.
+                    Liczba opublikowanych wpisów: {{ posts.total }}.
                 </p>
             </div>
 
@@ -169,7 +173,7 @@ function paginationLabel(label: string): string {
                     <p class="mt-4 line-clamp-4 leading-relaxed text-slate-600">
                         {{
                             post.excerpt ||
-                            'Przeczytaj najnowszy artykuł na blogu AmperMaks.'
+                            'Przeczytaj ten artykuł na blogu AmperMaks.'
                         }}
                     </p>
                     <Link

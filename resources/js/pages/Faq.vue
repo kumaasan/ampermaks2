@@ -19,11 +19,11 @@ const faqs = [
     },
     {
         question: 'Czy przygotowanie wyceny jest bezpłatne?',
-        answer: 'Tak. Przy prostszych zleceniach wycenę możemy przedstawić już telefonicznie, a przy większym zakresie prac umawiamy się na oględziny na miejscu — w obu przypadkach nic to nie kosztuje.',
+        answer: 'Tak. Przy prostszych zleceniach możemy przedstawić wycenę już telefonicznie, a przy większym zakresie prac umawiamy się na oględziny na miejscu — w obu przypadkach nic to nie kosztuje.',
     },
     {
         question:
-            'Zajmujecie się awariami elektrycznymi? Jak szybko można liczyć na pomoc?',
+            'Czy zajmujecie się awariami elektrycznymi? Jak szybko można liczyć na pomoc?',
         answer: 'Tak, usuwanie awarii to jedna z naszych podstawowych usług. Najlepiej zadzwonić od razu — na podstawie opisu usterki ocenimy priorytet zgłoszenia i ustalimy najbliższy możliwy termin dojazdu.',
     },
     {
@@ -37,7 +37,7 @@ const faqs = [
     },
     {
         question: 'Czy udzielacie gwarancji na wykonane prace?',
-        answer: 'Tak, każda wykonana przez nas usługa objęta jest gwarancją. Jej dokładny zakres i czas trwania zależą od rodzaju zlecenia i ustalamy go jeszcze przed rozpoczęciem prac.',
+        answer: 'Tak, każda wykonana przez nas usługa jest objęta gwarancją. Dokładny zakres i czas trwania gwarancji zależą od rodzaju zlecenia i ustalamy je jeszcze przed rozpoczęciem prac.',
     },
     {
         question: 'Czy wystawiacie faktury za wykonane usługi?',
@@ -45,7 +45,7 @@ const faqs = [
     },
     {
         question: 'Czy można umówić wizytę poza standardowymi godzinami pracy?',
-        answer: 'W miarę możliwości staramy się dopasować do grafiku klienta, szczególnie firm, które potrzebują prac poza swoimi godzinami działania. Wystarczy to ustalić podczas kontaktu.',
+        answer: 'W miarę możliwości staramy się dopasować do grafiku klienta, szczególnie w przypadku firm, które potrzebują wykonania prac poza swoimi godzinami działania. Wystarczy ustalić to podczas kontaktu.',
     },
 ];
 
@@ -70,7 +70,7 @@ function toggle(index: number) {
                         class="h-1.5 w-1.5 rounded-full bg-[#F5A623]"
                         aria-hidden="true"
                     />
-                    Faq
+                    FAQ
                 </p>
                 <h2
                     class="text-3xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-4xl"

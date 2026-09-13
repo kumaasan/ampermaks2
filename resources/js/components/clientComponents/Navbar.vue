@@ -15,13 +15,13 @@ defineProps({
     },
     ctaLabel: {
         type: String,
-        default: 'Zamów wycene',
+        default: 'Zamów wycenę',
     },
 });
 
 // Linki nawigacji — dodanie nowej sekcji = dodanie jednego wpisu tutaj
 const navLinks = [
-    { label: 'Home', href: '/', mobileOnly: true },
+    { label: 'Strona główna', href: '/', mobileOnly: true },
     { label: 'Usługi', href: '/#uslugi' },
     { label: 'Realizacje', href: '/#realizacje' },
     { label: 'Nagrody', href: '/#nagrody' },
@@ -68,12 +68,12 @@ onUnmounted(() => {
                 <Link
                     href="/"
                     class="flex shrink-0 items-center gap-2"
-                    aria-label="AmperMaks - strona główna"
+                    aria-label="AmperMaks — strona główna"
                 >
                     <span
                         class="flex h-9 w-9 items-center justify-center rounded-lg"
                     >
-                        <img alt="AmperMaks logo" src="/logo2.png" />
+                        <img alt="Logo AmperMaks" src="/logo2.png" />
                     </span>
                     <span
                         class="text-lg font-bold tracking-tight text-[#0B1F3A]"

@@ -57,9 +57,9 @@ const hasAwards = computed(() => props.awards.length > 0);
                     Nagrodzeni w konkursie Orły Elektryki
                 </h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
-                    Nasza praca została doceniona przez branżę elektryczną w
-                    ogólnopolskim konkursie Orły Elektryki — potwierdzenie
-                    jakości, którą realizujemy na co dzień.
+                    Nasza praca została doceniona w ogólnopolskim konkursie Orły
+                    Elektryki — to potwierdzenie jakości usług, które świadczymy
+                    na co dzień.
                 </p>
             </div>
 

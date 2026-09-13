@@ -16,20 +16,20 @@ const services = [
         icon: Hammer,
         title: 'Modernizacja instalacji elektrycznej',
         description:
-            'Stara instalacja bez uziemienia, przestarzałe bezpieczniki topikowe, za mało gniazdek? Modernizujemy instalacje etapowo, tak żeby dało się w budynku normalnie funkcjonować w trakcie prac.',
+            'Stara instalacja bez uziemienia, przestarzałe bezpieczniki topikowe, za mało gniazdek? Modernizujemy instalacje etapowo, tak aby można było normalnie korzystać z budynku w trakcie prac.',
     },
 
     {
         icon: Plug,
         title: 'Nowe instalacje elektryczne',
         description:
-            'Kompleksowy montaż instalacji w nowym domu, mieszkaniu lub lokalu usługowym — od projektu rozdzielnicy po ostatni punkt świetlny. Zgodnie z normami i z myślą o latach użytkowania.',
+            'Kompleksowy montaż instalacji w nowym domu, mieszkaniu lub lokalu usługowym — od projektu rozdzielnicy po ostatni punkt świetlny. Prace wykonujemy zgodnie z normami i z myślą o latach użytkowania.',
     },
     {
         icon: Siren,
         title: 'Usuwanie awarii elektrycznych',
         description:
-            'Zwarcie, brak prądu, iskrzenie w gniazdku? Lokalizujemy usterkę szybko i bez zbędnego rozkuwania ścian. Dostępni również po godzinach, gdy awaria nie może czekać do jutra.',
+            'Zwarcie, brak prądu, iskrzenie w gniazdku? Lokalizujemy usterkę szybko i bez zbędnego rozkuwania ścian. Jesteśmy dostępni również po godzinach, gdy awaria nie może czekać do jutra.',
     },
 
     {
@@ -48,7 +48,7 @@ const services = [
         icon: Gauge,
         title: 'Pomiary elektryczne z protokołem',
         description:
-            'Pomiary skuteczności ochrony przeciwporażeniowej, rezystancji izolacji i stanu instalacji — z protokołem gotowym do przedłożenia u ubezpieczyciela, zarządcy budynku lub podczas odbioru.',
+            'Pomiary skuteczności ochrony przeciwporażeniowej, rezystancji izolacji i stanu instalacji — z protokołem gotowym do przedłożenia ubezpieczycielowi, zarządcy budynku lub podczas odbioru.',
     },
 ];
 </script>
@@ -74,9 +74,9 @@ const services = [
                     Usługi elektryczne dla domu i firmy w jednym miejscu
                 </h2>
                 <p class="mt-4 text-lg leading-relaxed text-slate-600">
-                    Zakres, z którym najczęściej się do nas zgłaszacie — od
-                    pojedynczej awarii po pełną instalację elektryczną od
-                    podstaw.
+                    Zakres prac, z którym najczęściej się do nas zgłaszacie — od
+                    pojedynczej awarii po wykonanie pełnej instalacji
+                    elektrycznej od podstaw.
                 </p>
             </div>
 

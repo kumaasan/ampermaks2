@@ -168,7 +168,7 @@ function handleSubmit() {
                                 name="message"
                                 rows="6"
                                 required
-                                placeholder="Opisz, czego potrzebujesz..."
+                                placeholder="Opisz, czego potrzebujesz…"
                                 class="block w-full rounded-lg border border-slate-300 bg-(--bg) px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#F5A623] focus:ring-2 focus:ring-[#F5A623] focus:outline-none"
                             ></textarea>
                             <p
@@ -196,7 +196,11 @@ function handleSubmit() {
                             :disabled="form.processing"
                             class="inline-flex items-center justify-center rounded-lg bg-[#F5A623] px-6 py-3.5 text-sm font-semibold text-[#0B1F3A] shadow-sm transition-colors hover:bg-[#D88E12] disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                            {{ form.processing ? 'Wysyłanie...' : 'Wyślij wiadomość' }}
+                            {{
+                                form.processing
+                                    ? 'Wysyłanie…'
+                                    : 'Wyślij wiadomość'
+                            }}
                         </button>
                     </form>
                 </div>

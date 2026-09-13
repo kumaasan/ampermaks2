@@ -49,7 +49,7 @@ const currentYear = new Date().getFullYear();
                         class="mt-5 max-w-xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7"
                     >
                         Kompleksowe usługi elektryczne dla domów i firm:
-                        instalacje, modernizacje, awarie oraz pomiary.
+                        instalacje, modernizacje, usuwanie awarii oraz pomiary.
                     </p>
 
                     <a
@@ -99,7 +99,7 @@ const currentYear = new Date().getFullYear();
                             class="size-5 shrink-0 text-[#F5A623]"
                             aria-hidden="true"
                         />
-                        Świętochłowice i województwo Śląskie
+                        Świętochłowice i województwo śląskie
                     </p>
 
                     <h2

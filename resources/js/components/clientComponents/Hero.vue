@@ -16,7 +16,7 @@ defineProps({
 const trustPoints = [
     'Uprawnienia SEP E i D',
     'Wieloletnie doświadczenie',
-    'W gronie Złotych Orłów Elektryki 2026',
+    'W gronie laureatów konkursu Orły Elektryki 2026',
 ];
 
 // Paleta AmperMaks (literalne HEX, niezależne od globalnego motywu projektu):
@@ -37,14 +37,14 @@ const trustPoints = [
                         class="h-1.5 w-1.5 rounded-full bg-[#F5A623] font-extrabold"
                         aria-hidden="true"
                     />
-                    Elektryk Świętochłowice i okolice
+                    Elektryk w Świętochłowicach i okolicach
                 </p>
 
                 <h1
                     class="text-4xl font-extrabold tracking-tight text-[#0B1F3A] sm:text-5xl lg:text-6xl"
                 >
                     Elektryk, na którego
-                    <span class="text-[#F5A623]">możesz liczyć</span> - dziś i
+                    <span class="text-[#F5A623]">możesz liczyć</span> — dziś i
                     za 10 lat
                 </h1>
 
@@ -52,8 +52,9 @@ const trustPoints = [
                     class="mt-6 max-w-xl text-lg leading-relaxed font-medium text-slate-600"
                 >
                     Kompleksowe usługi elektryczne dla domów i firm na Śląsku —
-                    instalacje, modernizacje, awarie i pomiary. Uprawnienia SEP
-                    E i D, szybka reakcja i pełna gwarancja na wykonaną pracę.
+                    instalacje, modernizacje, usuwanie awarii i pomiary.
+                    Uprawnienia SEP E i D, szybka reakcja i pełna gwarancja na
+                    wykonane prace.
                 </p>
 
                 <div class="mt-8 flex flex-col gap-4 sm:flex-row">
