@@ -99,7 +99,7 @@ const trustPoints = [
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1298.8600123160954!2d18.91648637142907!3d50.29804279210744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69196ec4f68eda0f%3A0xc66439357798ad74!2sMTK%20Krzysztof%20G%C5%82ombik%20-%20AmperMaks!5e0!3m2!1sen!2spl!4v1785688387653!5m2!1sen!2spl"
                         title="Mapa dojazdu do AmperMaks w Świętochłowicach"
                         class="absolute inset-0 h-full w-full border-0"
-                        loading="eager"
+                        loading="lazy"
                         referrerpolicy="strict-origin-when-cross-origin"
                     ></iframe>
 

@@ -79,6 +79,7 @@ const hasAwards = computed(() => props.awards.length > 0);
                             :alt="award.title"
                             class="max-h-full max-w-full object-contain"
                             loading="lazy"
+                            decoding="async"
                         />
                     </div>
 

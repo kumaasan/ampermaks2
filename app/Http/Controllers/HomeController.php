@@ -11,6 +11,7 @@ class HomeController extends Controller
     public function __invoke(): Response
     {
         $realizations = Realization::query()
+            ->select(['id', 'title', 'description', 'image_disk', 'image_path'])
             ->latest()
             ->latest('id')
             ->limit(6)
@@ -20,6 +21,7 @@ class HomeController extends Controller
                 'title' => $realization->title,
                 'description' => $realization->description,
                 'image' => $realization->imageUrl(),
+                'show_url' => route('realizations.show', $realization),
             ]);
 
         return Inertia::render('HomePage', [

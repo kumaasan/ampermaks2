@@ -18,7 +18,9 @@ interface RealizationSummary {
     title: string;
     description: string;
     image_url: string;
+    images_count: number;
     created_at: string;
+    edit_url: string;
     delete_url: string;
 }
 
@@ -158,17 +160,31 @@ function paginationLabel(label: string): string {
                         class="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between"
                     >
                         <p class="text-xs text-muted-foreground">
-                            Dodano {{ formatDate(realization.created_at) }}
+                            Dodano {{ formatDate(realization.created_at) }} ·
+                            {{ realization.images_count }}
+                            {{
+                                realization.images_count === 1
+                                    ? 'zdjęcie'
+                                    : 'zdjęć'
+                            }}
                         </p>
-                        <Button
-                            type="button"
-                            size="sm"
-                            variant="destructive"
-                            @click="openDeleteDialog(realization)"
-                        >
-                            <Trash2 class="size-4" />
-                            Usuń
-                        </Button>
+                        <div class="flex flex-wrap gap-2">
+                            <Button as-child size="sm" variant="outline">
+                                <Link :href="realization.edit_url">
+                                    <ImagePlus class="size-4" />
+                                    Galeria
+                                </Link>
+                            </Button>
+                            <Button
+                                type="button"
+                                size="sm"
+                                variant="destructive"
+                                @click="openDeleteDialog(realization)"
+                            >
+                                <Trash2 class="size-4" />
+                                Usuń
+                            </Button>
+                        </div>
                     </div>
                 </CardContent>
             </Card>
@@ -233,8 +249,8 @@ function paginationLabel(label: string): string {
                     Czy na pewno chcesz usunąć realizację
                     <strong class="font-semibold text-foreground">
                         „{{ selectedRealization?.title }}”</strong
-                    >? Zdjęcie również zostanie usunięte. Tej operacji nie można
-                    cofnąć.
+                    >? Okładka i wszystkie zdjęcia galerii również zostaną
+                    usunięte. Tej operacji nie można cofnąć.
                 </DialogDescription>
             </DialogHeader>
             <DialogFooter>

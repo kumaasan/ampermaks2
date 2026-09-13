@@ -36,6 +36,7 @@ class DashboardController extends Controller
             ]);
 
         $recentRealizations = Realization::query()
+            ->select(['id', 'title', 'image_disk', 'image_path', 'created_at'])
             ->latest()
             ->latest('id')
             ->limit(4)
