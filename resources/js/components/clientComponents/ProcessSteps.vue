@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
 import { Image as ImageIcon } from 'lucide-vue-next';
 import { computed } from 'vue';
 
@@ -7,6 +8,7 @@ interface Project {
     title: string;
     description: string;
     image: string;
+    show_url: string;
 }
 
 // Bez wartości domyślnej defineProps<T>() dałoby props.projects === undefined,
@@ -69,30 +71,34 @@ const skeletonCount = 6;
                 v-if="hasProjects"
                 class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
             >
-                <figure
+                <Link
                     v-for="project in projects"
                     :key="project.id"
-                    class="overflow-hidden rounded-2xl bg-white p-4"
+                    :href="project.show_url"
+                    class="block overflow-hidden rounded-2xl bg-white p-4 outline-none focus-visible:ring-4 focus-visible:ring-[#F5A623]/70"
+                    :aria-label="`Zobacz galerię: ${project.title}`"
                 >
-                    <div
-                        class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100"
-                    >
-                        <img
-                            :src="project.image"
-                            :alt="project.title"
-                            class="h-full w-full object-cover"
-                            loading="lazy"
-                        />
-                    </div>
-                    <figcaption>
-                        <p class="text-md mt-4 font-bold text-[#0B1F3A]">
-                            {{ project.title }}
-                        </p>
-                        <p class="mt-2.5 text-sm text-slate-600">
-                            {{ project.description }}
-                        </p>
-                    </figcaption>
-                </figure>
+                    <figure>
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100"
+                        >
+                            <img
+                                :src="project.image"
+                                :alt="project.title"
+                                class="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <figcaption>
+                            <p class="text-md mt-4 font-bold text-[#0B1F3A]">
+                                {{ project.title }}
+                            </p>
+                            <p class="mt-2.5 text-sm text-slate-600">
+                                {{ project.description }}
+                            </p>
+                        </figcaption>
+                    </figure>
+                </Link>
             </div>
 
             <!-- Skeleton dopóki brak realnych zdjęć -->

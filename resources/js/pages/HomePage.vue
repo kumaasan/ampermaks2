@@ -12,6 +12,7 @@ interface Realization {
     title: string;
     description: string;
     image: string;
+    show_url: string;
 }
 
 defineProps<{

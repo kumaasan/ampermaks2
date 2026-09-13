@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import { ImageIcon, Save, Upload, X } from '@lucide/vue';
-import { onBeforeUnmount, ref } from 'vue';
+import { computed } from 'vue';
+import RealizationImagePicker from '@/components/admin/RealizationImagePicker.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,6 +19,7 @@ const props = defineProps<{
     storeUrl: string;
     indexUrl: string;
     maxUploadSizeMb: number;
+    maxImagesPerUpload: number;
     allowedImageTypes: string[];
 }>();
 
@@ -35,25 +37,28 @@ defineOptions({
 const form = useForm<{
     title: string;
     description: string;
-    image: File | null;
+    images: File[];
 }>({
     title: '',
     description: '',
-    image: null,
+    images: [],
 });
-const previewUrl = ref<string | null>(null);
 
-function setImage(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file = input.files?.[0] ?? null;
+const imageError = computed(
+    () =>
+        form.errors.images ??
+        Object.entries(form.errors).find(([key]) =>
+            key.startsWith('images.'),
+        )?.[1],
+);
 
-    if (previewUrl.value) {
-        URL.revokeObjectURL(previewUrl.value);
-    }
+function updateImages(images: File[]): void {
+    form.images = images;
+    const imageErrorKeys = Object.keys(form.errors).filter((key) =>
+        key.startsWith('images'),
+    ) as ('images' | `images.${number}`)[];
 
-    form.image = file;
-    previewUrl.value = file ? URL.createObjectURL(file) : null;
-    form.clearErrors('image');
+    form.clearErrors(...imageErrorKeys);
 }
 
 function submit(): void {
@@ -62,12 +67,6 @@ function submit(): void {
         preserveScroll: true,
     });
 }
-
-onBeforeUnmount(() => {
-    if (previewUrl.value) {
-        URL.revokeObjectURL(previewUrl.value);
-    }
-});
 </script>
 
 <template>
@@ -80,8 +79,8 @@ onBeforeUnmount(() => {
                 Dodaj realizację
             </h1>
             <p class="mt-2 text-muted-foreground">
-                Dodane zdjęcie i opis pojawią się w sekcji „Realizacje” na
-                stronie głównej.
+                Okładka i opis pojawią się w sekcji „Realizacje”, a pozostałe
+                zdjęcia utworzą galerię realizacji.
             </p>
         </div>
 
@@ -142,44 +141,25 @@ onBeforeUnmount(() => {
                 <CardHeader>
                     <CardTitle class="flex items-center gap-2">
                         <ImageIcon class="size-5" />
-                        Zdjęcie
+                        Zdjęcia
                     </CardTitle>
                     <CardDescription>
-                        Najlepszy efekt da zdjęcie 4:3 o rozmiarze 1600 × 1200
-                        px. Inne proporcje zostaną bezpiecznie przycięte w
-                        kafelku bez deformowania obrazu.
+                        Pierwsze wybrane zdjęcie zostanie okładką kafelka.
+                        Najlepszy efekt da format 4:3, np. 1600 × 1200 px.
                     </CardDescription>
                 </CardHeader>
                 <CardContent class="space-y-4">
-                    <div class="grid gap-2">
-                        <Label for="image">Wybierz zdjęcie</Label>
-                        <input
-                            id="image"
-                            type="file"
-                            required
-                            :disabled="form.processing"
-                            :accept="allowedImageTypes.join(',')"
-                            class="block w-full min-w-0 cursor-pointer rounded-md border border-input bg-transparent text-sm text-muted-foreground shadow-xs file:mr-4 file:border-0 file:border-r file:border-input file:bg-muted file:px-4 file:py-2.5 file:text-sm file:font-medium file:text-foreground hover:file:bg-accent focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:ring-destructive/40"
-                            :aria-invalid="Boolean(form.errors.image)"
-                            @change="setImage"
-                        />
-                        <p class="text-xs text-muted-foreground">
-                            JPG, PNG lub WebP, maksymalnie
-                            {{ maxUploadSizeMb }} MB.
-                        </p>
-                        <InputError :message="form.errors.image" />
-                    </div>
-
-                    <div
-                        v-if="previewUrl"
-                        class="overflow-hidden rounded-xl border bg-muted"
-                    >
-                        <img
-                            :src="previewUrl"
-                            alt="Podgląd wybranego zdjęcia"
-                            class="aspect-[4/3] w-full object-cover"
-                        />
-                    </div>
+                    <RealizationImagePicker
+                        input-id="images"
+                        :model-value="form.images"
+                        :allowed-image-types="allowedImageTypes"
+                        :max-files="maxImagesPerUpload"
+                        :max-upload-size-mb="maxUploadSizeMb"
+                        :disabled="form.processing"
+                        :error="imageError"
+                        first-is-cover
+                        @update:model-value="updateImages"
+                    />
                 </CardContent>
             </Card>
 
