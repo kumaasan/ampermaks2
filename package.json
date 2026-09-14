@@ -1,6 +1,6 @@
 {
     "$schema": "https://www.schemastore.org/package.json",
-    "name": "ampermaks2",
+    "name": "AmperMaks",
     "private": true,
     "type": "module",
     "scripts": {
