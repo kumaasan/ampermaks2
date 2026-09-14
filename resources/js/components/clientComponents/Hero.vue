@@ -37,7 +37,7 @@ const trustPoints = [
                         class="h-1.5 w-1.5 rounded-full bg-[#F5A623] font-extrabold"
                         aria-hidden="true"
                     />
-                    Elektryk w Świętochłowicach i okolicach
+                    Elektryk Świętochłowice i województwo śląskie
                 </p>
 
                 <h1
